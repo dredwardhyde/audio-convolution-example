@@ -39,12 +39,10 @@ plt.show()
 
 plt.figure()
 convs = list()
-# Manual recontruction of the melody:
-# pick the melody frequencies/notes from the spectrogram above
-Ab6 = 1661  # Hz
-Eb6 = 1244  # Hz
-Ab5 = 830  # Hz
-Bb5 = 932  # Hz
+Ab6 = 1661
+Eb6 = 1244
+Ab5 = 830
+Bb5 = 932
 TT = .1  # s
 tt = np.r_[0:TT:dt]
 n = 1
@@ -56,7 +54,7 @@ A = {
 }
 for a in A.items():
     plt.subplot(4, 1, n)
-    plt.title(rf'$x(t) \star a^{{({a[0]})}}(t)$', backgroundcolor='black', verticalalignment='top', size=17)
+    plt.title(rf'$x(t) \star a^{{({a[0]} Hz)}}(t)$', backgroundcolor='black', verticalalignment='top', size=17)
     n += 1
     convs.append(np.convolve(x, a[1], mode='same'))
     plt.plot(t, convs[-1])
